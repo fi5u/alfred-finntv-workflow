@@ -3,24 +3,11 @@
 import sys
 from workflow import Workflow, web
 import urllib
+from config import channels
 
 api_url = 'https://api.elisaviihde.fi/etvrecorder/ajaxprograminfo.sl'
 
 def main(wf):
-    channels = [
-        'Yle TV1',
-        'Yle TV2',
-        'MTV3',
-        'Nelonen',
-        'Sub',
-        'Kutonen',
-        'FOX',
-        'AVA',
-        'Yle Teema & Fem',
-        'Liv',
-        'Jim',
-    ]
-
     channel = sys.argv[1]
 
     if channel not in channels:

@@ -3,25 +3,11 @@
 import sys
 from workflow import Workflow, web
 import urllib
+from config import channels
 
 api_url = 'https://api.elisaviihde.fi/etvrecorder/ajaxprograminfo.sl'
 
 def main(wf):
-
-    channels = [
-        'Yle TV1',
-        'Yle TV2',
-        'MTV3',
-        'Nelonen',
-        'Sub',
-        'Kutonen',
-        'FOX',
-        'AVA',
-        'Yle Teema & Fem',
-        'Liv',
-        'Jim',
-    ]
-
     for channel in channels:
         now_and_next_progs = wf.cached_data(
             'now_and_next_' + channel,
