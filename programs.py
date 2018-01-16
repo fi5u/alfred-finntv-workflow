@@ -3,9 +3,7 @@
 import sys
 from workflow import Workflow, web
 import urllib
-from config import channels
-
-api_url = 'https://api.elisaviihde.fi/etvrecorder/ajaxprograminfo.sl'
+from config import api_url, channels
 
 def main(wf):
     channel = sys.argv[1]
