@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tbfisher.finntv</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>F259D0B9-D96A-410E-A07E-69476727169C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>561EB952-C031-40A3-A4EA-B60FC28347DE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>TB Fisher</string>
+	<key>description</key>
+	<string>A program guide to what's on now and later</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Finnish TV guide</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>channelprograms</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string># encoding: utf-8
+
+import sys
+from workflow import Workflow, web
+import urllib
+
+api_url = 'https://api.elisaviihde.fi/etvrecorder/ajaxprograminfo.sl'
+
+def main(wf):
+    channel = sys.argv[1]
+
+    programs = wf.cached_data(
+        channel + ' programs',
+        lambda: get_programs(channel),
+        max_age=60
+    )
+
+    for program in programs:
+        wf.add_item(
+            title=urllib.unquote(
+                program['name'].encode('utf-8')
+            ).decode('utf8'),
+            subtitle='{} - {}'.format(
+                program['simple_start_time'], program['simple_end_time']
+            ),
+            valid=True,
+            icon='icons/{}.png'.format(channel)
+        )
+
+    # Send the results to Alfred as XML
+    wf.send_feedback()
+
+
+def get_programs(channel):
+    params = {'24h': channel}
+    r = web.get(api_url, params)
+
+    r.raise_for_status()
+
+    result = r.json()
+
+    return result['programs']
+
+
+if __name__ == u"__main__":
+    wf = Workflow()
+    sys.exit(wf.run(main))</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Programs</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>561EB952-C031-40A3-A4EA-B60FC28347DE</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>tvguide</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string># encoding: utf-8
+
+import sys
+from workflow import Workflow, web
+import urllib
+
+api_url = 'https://api.elisaviihde.fi/etvrecorder/ajaxprograminfo.sl'
+
+def main(wf):
+
+    channels = [
+        'Yle TV1',
+        'Yle TV2',
+        'MTV3',
+        'Nelonen',
+        'Sub',
+        'Kutonen',
+        'FOX',
+        'AVA',
+        'Yle Teema &amp; Fem',
+        'Liv',
+        'Jim',
+    ]
+
+    for channel in channels:
+        now_and_next_progs = wf.cached_data(
+            'now_and_next_' + channel,
+            lambda: get_now_and_next_program(channel),
+            max_age=60
+        )
+        
+        wf.add_item(
+            title=channel,
+            subtitle=urllib.unquote(
+                now_and_next_progs
+            ).decode('utf8'),
+            arg=channel,
+            valid=True,
+            icon='icons/{}.png'.format(channel)
+        )
+
+    # Send the results to Alfred as XML
+    wf.send_feedback()
+
+
+def get_now_and_next_program(channel):
+    params = {'24h': channel}
+    r = web.get(api_url, params)
+
+    r.raise_for_status()
+
+    result = r.json()
+
+    programs = result['programs']
+
+    now_and_next_progs = '{} - {} - {}'.format(
+        programs[0]['name'].encode('utf-8'),
+        programs[0]['simple_end_time'],
+        programs[1]['name'].encode('utf-8'),
+    )
+
+    return now_and_next_progs
+
+
+if __name__ == u"__main__":
+    wf = Workflow()
+    sys.exit(wf.run(main))</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Choose a TV channel</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F259D0B9-D96A-410E-A07E-69476727169C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Lists the major free Finnish channels, with what is currently showing and what is upcoming.</string>
+	<key>uidata</key>
+	<dict>
+		<key>561EB952-C031-40A3-A4EA-B60FC28347DE</key>
+		<dict>
+			<key>xpos</key>
+			<integer>480</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
+		<key>F259D0B9-D96A-410E-A07E-69476727169C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>180</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
