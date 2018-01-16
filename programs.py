@@ -7,7 +7,24 @@ import urllib
 api_url = 'https://api.elisaviihde.fi/etvrecorder/ajaxprograminfo.sl'
 
 def main(wf):
+    channels = [
+        'Yle TV1',
+        'Yle TV2',
+        'MTV3',
+        'Nelonen',
+        'Sub',
+        'Kutonen',
+        'FOX',
+        'AVA',
+        'Yle Teema & Fem',
+        'Liv',
+        'Jim',
+    ]
+
     channel = sys.argv[1]
+
+    if channel not in channels:
+        return
 
     programs = wf.cached_data(
         channel + ' programs',

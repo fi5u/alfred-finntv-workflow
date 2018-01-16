@@ -28,7 +28,7 @@ def main(wf):
             lambda: get_now_and_next_program(channel),
             max_age=60
         )
-        
+
         wf.add_item(
             title=channel,
             subtitle=urllib.unquote(

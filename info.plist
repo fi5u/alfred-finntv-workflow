@@ -46,7 +46,7 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>keyword</key>
-				<string>channelprograms</string>
+				<string>programs</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -56,15 +56,15 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Fetching programs</string>
 				<key>script</key>
-				<string>python programs.py</string>
+				<string>python programs.py "{query}"</string>
 				<key>scriptargtype</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>Show upcoming programs and times</string>
 				<key>title</key>
 				<string>Programs</string>
 				<key>type</key>
@@ -93,7 +93,7 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>keyword</key>
-				<string>tvguide</string>
+				<string>channels</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -103,7 +103,7 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Fetching channels</string>
 				<key>script</key>
 				<string>python channels.py</string>
 				<key>scriptargtype</key>
@@ -111,7 +111,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>View current and next program details</string>
 				<key>title</key>
 				<string>Choose a TV channel</string>
 				<key>type</key>
