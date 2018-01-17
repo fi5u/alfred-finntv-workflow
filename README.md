@@ -2,11 +2,11 @@
 
 Search the main free Finnish TV channels and quickly see what's showing now and next.
 
-![](channels.png)
+![Channels list](channels.png)
 
 Selecting a channel will show the upcoming programs on that channel and their start and end times.
 
-![](programs.png)
+![Programs list](programs.png)
 
 ### Usage
 
