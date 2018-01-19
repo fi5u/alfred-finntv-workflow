@@ -8,6 +8,45 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
+		<key>4C4318EB-B540-46F9-82BC-89916A763F1C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D7577573-82C7-4FA0-A623-4BCD36CD498C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>561EB952-C031-40A3-A4EA-B60FC28347DE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4C4318EB-B540-46F9-82BC-89916A763F1C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8B835D7A-9883-4E4F-B638-3D8D04B00406</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>561EB952-C031-40A3-A4EA-B60FC28347DE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>F259D0B9-D96A-410E-A07E-69476727169C</key>
 		<array>
 			<dict>
@@ -32,6 +71,119 @@
 	<string>Finnish TV guide</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>channels</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Fetching channels</string>
+				<key>script</key>
+				<string>python channels.py</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>View current and next program details</string>
+				<key>title</key>
+				<string>Choose a TV channel</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F259D0B9-D96A-410E-A07E-69476727169C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>program</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Fetching program details</string>
+				<key>script</key>
+				<string>python program.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Search for program details with program ID</string>
+				<key>title</key>
+				<string>Program details</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>4C4318EB-B540-46F9-82BC-89916A763F1C</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>search-channel</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>D7577573-82C7-4FA0-A623-4BCD36CD498C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -82,66 +234,53 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>2</integer>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>keyword</key>
-				<string>channels</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Fetching channels</string>
-				<key>script</key>
-				<string>python channels.py</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string>View current and next program details</string>
-				<key>title</key>
-				<string>Choose a TV channel</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<false/>
+				<key>triggerid</key>
+				<string>search-channel</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.trigger.external</string>
 			<key>uid</key>
-			<string>F259D0B9-D96A-410E-A07E-69476727169C</string>
+			<string>8B835D7A-9883-4E4F-B638-3D8D04B00406</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string>Lists the major free Finnish channels, with what is currently showing and what is upcoming.</string>
 	<key>uidata</key>
 	<dict>
+		<key>4C4318EB-B540-46F9-82BC-89916A763F1C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>530</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
 		<key>561EB952-C031-40A3-A4EA-B60FC28347DE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>480</integer>
+			<integer>330</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
+		<key>8B835D7A-9883-4E4F-B638-3D8D04B00406</key>
+		<dict>
+			<key>xpos</key>
+			<integer>130</integer>
+			<key>ypos</key>
+			<integer>210</integer>
+		</dict>
+		<key>D7577573-82C7-4FA0-A623-4BCD36CD498C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>720</integer>
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>
 		<key>F259D0B9-D96A-410E-A07E-69476727169C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>180</integer>
+			<integer>130</integer>
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>

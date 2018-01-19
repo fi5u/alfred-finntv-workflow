@@ -19,6 +19,7 @@ def main(wf):
 
     for program in programs:
         wf.add_item(
+            arg=program['id'],
             title=urllib.unquote(
                 program['name'].encode('utf-8')
             ).decode('utf8'),
