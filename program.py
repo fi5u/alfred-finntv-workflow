@@ -11,7 +11,7 @@ def main(wf):
     program_data = wf.cached_data(
         program + ' data',
         lambda: get_program_data(program),
-        max_age=600
+        max_age=60 * 60 * 24 * 7 # 1 week
     )
 
     if not program_data:

@@ -14,7 +14,7 @@ def main(wf):
     programs = wf.cached_data(
         channel + ' programs',
         lambda: get_programs(channel),
-        max_age=60
+        max_age=60 * 5 # 5 mins
     )
 
     for program in programs:

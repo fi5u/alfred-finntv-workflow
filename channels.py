@@ -10,7 +10,7 @@ def main(wf):
         now_and_next_progs = wf.cached_data(
             'now_and_next_' + channel,
             lambda: get_now_and_next_program(channel),
-            max_age=60
+            max_age=60 * 3 # 3 mins
         )
 
         wf.add_item(
