@@ -8,11 +8,34 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
+		<key>1C60E924-8FBC-4D7C-AF79-9E9B2BB1D58A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F259D0B9-D96A-410E-A07E-69476727169C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>4C4318EB-B540-46F9-82BC-89916A763F1C</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>D7577573-82C7-4FA0-A623-4BCD36CD498C</string>
+				<string>6D8117AB-A423-43D5-8EEC-8EEC17CCF5ED</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>593A9083-24A1-4B65-96A6-048215767586</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -26,6 +49,32 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>4C4318EB-B540-46F9-82BC-89916A763F1C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>593A9083-24A1-4B65-96A6-048215767586</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2D2BCCA9-CE00-47BE-9845-CB6CA9059D2D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6D8117AB-A423-43D5-8EEC-8EEC17CCF5ED</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D7577573-82C7-4FA0-A623-4BCD36CD498C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -71,6 +120,57 @@
 	<string>Finnish TV guide</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>triggerid</key>
+				<string>search-channels</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>1C60E924-8FBC-4D7C-AF79-9E9B2BB1D58A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>externaltriggerid</key>
+				<string>search-channel</string>
+				<key>passinputasargument</key>
+				<true/>
+				<key>passvariables</key>
+				<true/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>D7577573-82C7-4FA0-A623-4BCD36CD498C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>channels</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>6D8117AB-A423-43D5-8EEC-8EEC17CCF5ED</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -168,25 +268,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>externaltriggerid</key>
-				<string>search-channel</string>
-				<key>passinputasargument</key>
-				<true/>
-				<key>passvariables</key>
-				<true/>
-				<key>workflowbundleid</key>
-				<string>self</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.callexternaltrigger</string>
-			<key>uid</key>
-			<string>D7577573-82C7-4FA0-A623-4BCD36CD498C</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -234,6 +315,44 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>externaltriggerid</key>
+				<string>search-channels</string>
+				<key>passinputasargument</key>
+				<false/>
+				<key>passvariables</key>
+				<false/>
+				<key>workflowbundleid</key>
+				<string>self</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.callexternaltrigger</string>
+			<key>uid</key>
+			<string>2D2BCCA9-CE00-47BE-9845-CB6CA9059D2D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string>channels</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>593A9083-24A1-4B65-96A6-048215767586</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>triggerid</key>
 				<string>search-channel</string>
 			</dict>
@@ -249,40 +368,68 @@
 	<string>Lists the major free Finnish channels, with what is currently showing and what is upcoming.</string>
 	<key>uidata</key>
 	<dict>
+		<key>1C60E924-8FBC-4D7C-AF79-9E9B2BB1D58A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>10</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
+		<key>2D2BCCA9-CE00-47BE-9845-CB6CA9059D2D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>930</integer>
+			<key>ypos</key>
+			<integer>200</integer>
+		</dict>
 		<key>4C4318EB-B540-46F9-82BC-89916A763F1C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>530</integer>
+			<integer>590</integer>
 			<key>ypos</key>
-			<integer>70</integer>
+			<integer>140</integer>
 		</dict>
 		<key>561EB952-C031-40A3-A4EA-B60FC28347DE</key>
 		<dict>
 			<key>xpos</key>
-			<integer>330</integer>
+			<integer>390</integer>
 			<key>ypos</key>
-			<integer>70</integer>
+			<integer>140</integer>
+		</dict>
+		<key>593A9083-24A1-4B65-96A6-048215767586</key>
+		<dict>
+			<key>xpos</key>
+			<integer>840</integer>
+			<key>ypos</key>
+			<integer>230</integer>
+		</dict>
+		<key>6D8117AB-A423-43D5-8EEC-8EEC17CCF5ED</key>
+		<dict>
+			<key>xpos</key>
+			<integer>840</integer>
+			<key>ypos</key>
+			<integer>100</integer>
 		</dict>
 		<key>8B835D7A-9883-4E4F-B638-3D8D04B00406</key>
 		<dict>
 			<key>xpos</key>
-			<integer>130</integer>
+			<integer>190</integer>
 			<key>ypos</key>
-			<integer>210</integer>
+			<integer>280</integer>
 		</dict>
 		<key>D7577573-82C7-4FA0-A623-4BCD36CD498C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>720</integer>
+			<integer>930</integer>
 			<key>ypos</key>
 			<integer>70</integer>
 		</dict>
 		<key>F259D0B9-D96A-410E-A07E-69476727169C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>130</integer>
+			<integer>190</integer>
 			<key>ypos</key>
-			<integer>70</integer>
+			<integer>140</integer>
 		</dict>
 	</dict>
 	<key>version</key>

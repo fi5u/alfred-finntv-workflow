@@ -49,6 +49,15 @@ def main(wf):
         icon='icons/{}.png'.format(program_data['channel'])
     )
 
+    # Channel
+    wf.add_item(
+        arg='channels',
+        title='All channels',
+        subtitle='Go back to channels list',
+        valid=True,
+        icon='icon.png'.format(program_data['channel'])
+    )
+
     # Duration
     wf.add_item(
         title=program_data['flength'],
