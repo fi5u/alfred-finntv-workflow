@@ -8,6 +8,10 @@ Selecting a channel will show the upcoming programs on that channel and their st
 
 ![Programs list](programs.png)
 
+Selecting a program will bring up more information about it.
+
+![Programs info](program.png)
+
 ### Usage
 
 `channels`
@@ -17,3 +21,7 @@ To display the list of channels.
 `programs [channel]`
 
 To display the upcoming programs on the channel.
+
+`program [program_id]`
+
+To display information about the chosen program.
